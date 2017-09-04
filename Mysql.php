@@ -3,7 +3,7 @@ class Mysql{
 	
 		private $id;
 		
-		public function Mysql($servername = "localhost", $username = "root", $password = "", $database = "youtube"){
+		public function __construct($servername = "localhost", $username = "root", $password = "", $database = "youtube"){
 			// Create connection
 			$this->id = mysqli_connect($servername, $username, $password,$database);
 
