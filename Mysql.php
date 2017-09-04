@@ -1,18 +1,13 @@
 <?php
-class mysql{
+class Mysql{
+	
 		private $id;
 		
-		function mysql($servername = "localhost", $username = "root", $password = "", $database = "youtube"){
+		function __construct($servername = "localhost", $username = "root", $password = "", $database = "youtube"){
 			// Create connection
 			$this->id = mysqli_connect($servername, $username, $password,$database);
 
-				// Check connection
-				if ($this->id->connect_error) {
-					die("Connection failed: " . $this->id->connect_error);
-					
-				} 
-				
-				return $this->id;
+			return $this->id;
 		}
 		function insert($sql) {
 		
@@ -41,4 +36,3 @@ class mysql{
 			else return false;
 		}
 }
-?>
