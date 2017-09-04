@@ -3,13 +3,13 @@ class Mysql{
 	
 		private $id;
 		
-		function __construct($servername = "localhost", $username = "root", $password = "", $database = "youtube"){
+		public function Mysql($servername = "localhost", $username = "root", $password = "", $database = "youtube"){
 			// Create connection
 			$this->id = mysqli_connect($servername, $username, $password,$database);
 
 			return $this->id;
 		}
-		function insert($sql) {
+		public function insert($sql) {
 		
 		  $result = $this->id->query($sql);
 		  
@@ -20,7 +20,7 @@ class Mysql{
 			}
 
 		}
-		function select($sql) {
+		public function select($sql) {
 			$resultat = $this->id->query($sql);
 			$n = $resultat->num_rows;
 			if($n==1){
