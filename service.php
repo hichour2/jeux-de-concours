@@ -1,6 +1,6 @@
 <?php
 
-require 'Mysql.php';
+require_once 'Mysql.php';
 
 $db  = new Mysql();
 
@@ -30,18 +30,18 @@ switch($data['action']){
 			$data['email']=isset($_POST['email'])? $_POST['email']:$_GET['email'];
 			$data['age']=isset($_POST['age']) && intval($_POST['age'])!="" ? intval($_POST['age']):0;
 			$data['city']=isset($_POST['city']) && intval($_POST['city'])!=0 ? intval($_POST['city']):1;
-			var_dump($data['city']);
+			
 			
 			$sql   = "INSERT INTO jeux (Id,FirstName,LastName, Email,Age,city_id) VALUES (null,'".$data['firstname']."','".$data['lastname']."','".$data['email']."',".$data['age'].",".$data['city'].")";
-			echo $sql;
+			
 			$idjeux=$db->insert($sql);
 			if($idjeux>0){
 				header('Location: success.php');
 			}
-			
-		
+	break;
+	default:
+		header('Location: index.php');
 	break;
 	
 }
 
-?>
